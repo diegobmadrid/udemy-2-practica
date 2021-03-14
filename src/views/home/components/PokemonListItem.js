@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 
 export default function PokemonItemList({ name, url }) {
 
-    const getId = () => {
-        console.log(url.split("/")[6]);
+    const getId = (text) => {
+        const id = text.split("/")[6] || 0;
+        console.log(id);
+        return id;
     }
 
     return (
@@ -15,7 +17,7 @@ export default function PokemonItemList({ name, url }) {
         <> {/**Sirve tambien para agregar mas de un componente a un contenedor */}
             <p>{name}</p>
             <button>
-                <Link to={`/pokemon/${getId()}`}> Ver Detalles </Link>
+                <Link to={`/pokemon/${getId(url)}`}> Ver Detalles </Link>
             </button>
         </>
     )
